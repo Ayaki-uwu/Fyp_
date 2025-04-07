@@ -1,0 +1,836 @@
+fileFormatVersion: 2
+guid: 245b901904296dd4ba8b415a6736a629
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: IceCocoon_Frame_0
+    originalName: 
+    pivot: {x: 0.7777778, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 115
+      y: 105
+      width: 9
+      height: 3
+    spriteID: 3e3a9a6f3f30baa409057c8908878721
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 115, y: 105}
+  - name: IceCocoon_Frame_1
+    originalName: 
+    pivot: {x: 0.84615386, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 199
+      width: 13
+      height: 6
+    spriteID: 444085a412dacc24abefe72428f03891
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 199}
+  - name: IceCocoon_Frame_2
+    originalName: 
+    pivot: {x: 0.7058824, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 182
+      width: 17
+      height: 9
+    spriteID: 9f69d6b62645bf24daf470ea2a1fc1b2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 182}
+  - name: IceCocoon_Frame_3
+    originalName: 
+    pivot: {x: 0.54545456, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 165
+      width: 22
+      height: 9
+    spriteID: 401667f72372bdd4db9b7441b4c74237
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 165}
+  - name: IceCocoon_Frame_4
+    originalName: 
+    pivot: {x: 0.48, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 145
+      width: 25
+      height: 12
+    spriteID: 5af5aa4e0f9c2aa43a36210a714ce5be
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 145}
+  - name: IceCocoon_Frame_5
+    originalName: 
+    pivot: {x: 0.48, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 95
+      width: 25
+      height: 17
+    spriteID: a84e684c0193ec549b8067fb1f71b094
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 95}
+  - name: IceCocoon_Frame_6
+    originalName: 
+    pivot: {x: 0.48, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 120
+      width: 25
+      height: 17
+    spriteID: 0f2dee5563be4ec408f4aeae0a9cc955
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 120}
+  - name: IceCocoon_Frame_7
+    originalName: 
+    pivot: {x: 0.48, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 67
+      width: 25
+      height: 20
+    spriteID: b09f5946b4e49614a956a696b0070082
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 67}
+  - name: IceCocoon_Frame_8
+    originalName: 
+    pivot: {x: 0.48, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 36
+      width: 25
+      height: 23
+    spriteID: c31e862275750c44590b1c69e1ce6a71
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 36}
+  - name: IceCocoon_Frame_9
+    originalName: 
+    pivot: {x: 0.48, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 4
+      width: 25
+      height: 24
+    spriteID: e1dcbddef5180be4eac02ce5e205fae3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 4}
+  - name: IceCocoon_Frame_10
+    originalName: 
+    pivot: {x: 0.48, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 226
+      width: 25
+      height: 26
+    spriteID: b03ad86451d0bb546ad43ebe5992dc9f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 226}
+  - name: IceCocoon_Frame_11
+    originalName: 
+    pivot: {x: 0.48, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 190
+      width: 25
+      height: 28
+    spriteID: 62fed99303740754a8138f7b5bf759a9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 190}
+  - name: IceCocoon_Frame_12
+    originalName: 
+    pivot: {x: 0.48, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 77
+      width: 25
+      height: 30
+    spriteID: a6f12dc532e4e8e448683496dd73de3c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 77}
+  - name: IceCocoon_Frame_13
+    originalName: 
+    pivot: {x: 0.48, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 115
+      width: 25
+      height: 30
+    spriteID: 4d1f54c9f749ef14493c6bb82d30caea
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 115}
+  - name: IceCocoon_Frame_14
+    originalName: 
+    pivot: {x: 0.48, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 38
+      width: 25
+      height: 31
+    spriteID: b4da9c935ccb1f04d958f8c8b7a92859
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 38}
+  - name: IceCocoon_Frame_15
+    originalName: 
+    pivot: {x: 0.48, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 153
+      width: 25
+      height: 29
+    spriteID: 35c8dd0df3e59854f9f0762164db026f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 153}
+  - name: IceCocoon_Frame_16
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 32
+      height: 26
+    spriteID: 4341ca00732a9ba4a8a567d1e946766d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: IceCocoon_Frame_17
+    originalName: 
+    pivot: {x: 0.4666667, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 77
+      y: 4
+      width: 30
+      height: 19
+    spriteID: d0d5c5f7c9f14aa4dac86c6fa6d585f5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 77, y: 4}
+  - name: IceCocoon_Frame_18
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 77
+      y: 53
+      width: 32
+      height: 11
+    spriteID: a802bb5c1a93dc1448954caa98c10eba
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 77, y: 53}
+  - name: IceCocoon_Frame_19
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 77
+      y: 89
+      width: 32
+      height: 8
+    spriteID: f96fc6aeea6726d4cae475680e262b68
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 77, y: 89}
+  - name: IceCocoon_Frame_20
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 77
+      y: 31
+      width: 32
+      height: 14
+    spriteID: c44ae0dfcced39b40af8f3e93bf75bbe
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 77, y: 31}
+  - name: IceCocoon_Frame_21
+    originalName: 
+    pivot: {x: 0.516129, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 77
+      y: 72
+      width: 31
+      height: 9
+    spriteID: 77d82d6518161d445a8f5f30882def54
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 77, y: 72}
+  - name: IceCocoon_Frame_22
+    originalName: 
+    pivot: {x: 0.53333336, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 77
+      y: 105
+      width: 30
+      height: 3
+    spriteID: 64f5c85775bd0574cb38f1d4baf71e07
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 77, y: 105}
+  - name: IceCocoon_Frame_23
+    originalName: 
+    pivot: {x: 0.53333336, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 77
+      y: 116
+      width: 30
+      height: 1
+    spriteID: c74cf5c872b3ddb409cdabebcc97cb36
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 77, y: 116}
+  - name: IceCocoon_Frame_24
+    originalName: 
+    pivot: {x: 0.53333336, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 77
+      y: 125
+      width: 30
+      height: 1
+    spriteID: 0601927748849794b8a5fd6841c782d6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 77, y: 125}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 1804156036
+    name: IceCocoon
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: IceCocoon_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 9
+        y: 0
+        width: 9
+        height: 3
+      spriteId: 3e3a9a6f3f30baa409057c8908878721
+    - name: IceCocoon_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 5
+        y: 0
+        width: 13
+        height: 6
+      spriteId: 444085a412dacc24abefe72428f03891
+    - name: IceCocoon_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 4
+        y: 0
+        width: 17
+        height: 9
+      spriteId: 9f69d6b62645bf24daf470ea2a1fc1b2
+    - name: IceCocoon_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 4
+        y: 0
+        width: 22
+        height: 9
+      spriteId: 401667f72372bdd4db9b7441b4c74237
+    - name: IceCocoon_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 4
+        y: 0
+        width: 25
+        height: 12
+      spriteId: 5af5aa4e0f9c2aa43a36210a714ce5be
+    - name: IceCocoon_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 4
+        y: 0
+        width: 25
+        height: 17
+      spriteId: a84e684c0193ec549b8067fb1f71b094
+    - name: IceCocoon_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 4
+        y: 0
+        width: 25
+        height: 17
+      spriteId: 0f2dee5563be4ec408f4aeae0a9cc955
+    - name: IceCocoon_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 4
+        y: 0
+        width: 25
+        height: 20
+      spriteId: b09f5946b4e49614a956a696b0070082
+    - name: IceCocoon_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 4
+        y: 0
+        width: 25
+        height: 23
+      spriteId: c31e862275750c44590b1c69e1ce6a71
+    - name: IceCocoon_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 4
+        y: 0
+        width: 25
+        height: 24
+      spriteId: e1dcbddef5180be4eac02ce5e205fae3
+    - name: IceCocoon_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 4
+        y: 0
+        width: 25
+        height: 26
+      spriteId: b03ad86451d0bb546ad43ebe5992dc9f
+    - name: IceCocoon_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 4
+        y: 0
+        width: 25
+        height: 28
+      spriteId: 62fed99303740754a8138f7b5bf759a9
+    - name: IceCocoon_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 4
+        y: 0
+        width: 25
+        height: 30
+      spriteId: a6f12dc532e4e8e448683496dd73de3c
+    - name: IceCocoon_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 4
+        y: 0
+        width: 25
+        height: 30
+      spriteId: 4d1f54c9f749ef14493c6bb82d30caea
+    - name: IceCocoon_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 4
+        y: 0
+        width: 25
+        height: 31
+      spriteId: b4da9c935ccb1f04d958f8c8b7a92859
+    - name: IceCocoon_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 4
+        y: 0
+        width: 25
+        height: 29
+      spriteId: 35c8dd0df3e59854f9f0762164db026f
+    - name: IceCocoon_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 0
+        y: 0
+        width: 32
+        height: 26
+      spriteId: 4341ca00732a9ba4a8a567d1e946766d
+    - name: IceCocoon_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 2
+        y: 0
+        width: 30
+        height: 19
+      spriteId: d0d5c5f7c9f14aa4dac86c6fa6d585f5
+    - name: IceCocoon_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 0
+        y: 0
+        width: 32
+        height: 11
+      spriteId: a802bb5c1a93dc1448954caa98c10eba
+    - name: IceCocoon_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 0
+        y: 0
+        width: 32
+        height: 8
+      spriteId: f96fc6aeea6726d4cae475680e262b68
+    - name: IceCocoon_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 0
+        y: 0
+        width: 32
+        height: 14
+      spriteId: c44ae0dfcced39b40af8f3e93bf75bbe
+    - name: IceCocoon_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: 0
+        y: 0
+        width: 31
+        height: 9
+      spriteId: 77d82d6518161d445a8f5f30882def54
+    - name: IceCocoon_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: 0
+        y: 0
+        width: 30
+        height: 3
+      spriteId: 64f5c85775bd0574cb38f1d4baf71e07
+    - name: IceCocoon_Frame_23
+      frameIndex: 23
+      cellRect:
+        x: 0
+        y: 0
+        width: 30
+        height: 1
+      spriteId: c74cf5c872b3ddb409cdabebcc97cb36
+    - name: IceCocoon_Frame_24
+      frameIndex: 24
+      cellRect:
+        x: 0
+        y: 0
+        width: 30
+        height: 1
+      spriteId: 0601927748849794b8a5fd6841c782d6
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 32, y: 32}

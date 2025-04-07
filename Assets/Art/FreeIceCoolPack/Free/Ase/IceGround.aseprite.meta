@@ -1,0 +1,780 @@
+fileFormatVersion: 2
+guid: bdafb56d4aa1cfc44b69c77f158abe0d
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: IceGround_Frame_0
+    originalName: 
+    pivot: {x: 1.1818182, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 77
+      y: 16
+      width: 11
+      height: 1
+    spriteID: 9d4dc2a6897633143a300cb58e408731
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 77, y: 16}
+  - name: IceGround_Frame_1
+    originalName: 
+    pivot: {x: 1.0769231, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 77
+      y: 4
+      width: 13
+      height: 4
+    spriteID: f0f7e4d733e3c7e478faa28c756baad9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 77, y: 4}
+  - name: IceGround_Frame_2
+    originalName: 
+    pivot: {x: 1, y: -0.2}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 51
+      y: 113
+      width: 13
+      height: 10
+    spriteID: 865899a283d6db54abeb608cc4596990
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 51, y: 113}
+  - name: IceGround_Frame_3
+    originalName: 
+    pivot: {x: 0.84615386, y: -0.7}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 36
+      width: 13
+      height: 10
+    spriteID: 818ddfc0b68230f40812e8a439e92b4e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 36}
+  - name: IceGround_Frame_4
+    originalName: 
+    pivot: {x: 0.84615386, y: -0.8}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 54
+      width: 13
+      height: 10
+    spriteID: 20c1f8fe84f92e64796ee0ffa6404eab
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 54}
+  - name: IceGround_Frame_5
+    originalName: 
+    pivot: {x: 0.923077, y: -0.90000004}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 72
+      width: 13
+      height: 10
+    spriteID: 6bd26e93c385732479d7fa5a362aa61c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 72}
+  - name: IceGround_Frame_6
+    originalName: 
+    pivot: {x: 0.923077, y: -0.90000004}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 90
+      width: 13
+      height: 10
+    spriteID: 02d68b80fc2990948b61bba8cff74402
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 90}
+  - name: IceGround_Frame_7
+    originalName: 
+    pivot: {x: 0.923077, y: -0.8}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 108
+      width: 13
+      height: 10
+    spriteID: 7a507601fc92bba45b41575195a85824
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 108}
+  - name: IceGround_Frame_8
+    originalName: 
+    pivot: {x: 0.923077, y: -0.7}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 26
+      y: 31
+      width: 13
+      height: 10
+    spriteID: bc5eab09b331fd74eb296cce74039fa2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 26, y: 31}
+  - name: IceGround_Frame_9
+    originalName: 
+    pivot: {x: 0.923077, y: -0.8}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 26
+      y: 49
+      width: 13
+      height: 10
+    spriteID: 2edbe9a8b7df15741ba29110696ff93b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 26, y: 49}
+  - name: IceGround_Frame_10
+    originalName: 
+    pivot: {x: 0.923077, y: -0.90000004}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 26
+      y: 67
+      width: 13
+      height: 10
+    spriteID: 9da90f3b746da2c41ad09b8cfff0dc47
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 26, y: 67}
+  - name: IceGround_Frame_11
+    originalName: 
+    pivot: {x: 0.8235294, y: -0.90000004}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 51
+      y: 76
+      width: 17
+      height: 10
+    spriteID: 9a9657e90c0a8c848ab40ab625140243
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 51, y: 76}
+  - name: IceGround_Frame_12
+    originalName: 
+    pivot: {x: 0.8333333, y: -0.90000004}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 51
+      y: 4
+      width: 18
+      height: 10
+    spriteID: f1bfa343922884145a9ce4685cb54842
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 51, y: 4}
+  - name: IceGround_Frame_13
+    originalName: 
+    pivot: {x: 0.8333333, y: -0.90000004}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 51
+      y: 22
+      width: 18
+      height: 10
+    spriteID: c839291d440dc4e43a47d777e8ae9d20
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 51, y: 22}
+  - name: IceGround_Frame_14
+    originalName: 
+    pivot: {x: 0.8333333, y: -0.90000004}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 51
+      y: 40
+      width: 18
+      height: 10
+    spriteID: b8eb21c0a7f9f014d96f281ef5fb8ae3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 51, y: 40}
+  - name: IceGround_Frame_15
+    originalName: 
+    pivot: {x: 0.8333333, y: -0.90000004}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 51
+      y: 58
+      width: 18
+      height: 10
+    spriteID: a9aebe7a303d577499140380931c677a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 51, y: 58}
+  - name: IceGround_Frame_16
+    originalName: 
+    pivot: {x: 0.75, y: -0.72727275}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 51
+      y: 94
+      width: 12
+      height: 11
+    spriteID: ca8299fca78a5d343b354f5acca34bec
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 51, y: 94}
+  - name: IceGround_Frame_17
+    originalName: 
+    pivot: {x: 0.7857143, y: -0.083333336}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 14
+      height: 24
+    spriteID: 92cc1aeba59a5294683cc718ddb68fd6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: IceGround_Frame_18
+    originalName: 
+    pivot: {x: 0.8235294, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 26
+      y: 4
+      width: 17
+      height: 19
+    spriteID: 56a7f9510f18efb42acc18ac3f72f611
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 26, y: 4}
+  - name: IceGround_Frame_19
+    originalName: 
+    pivot: {x: 0.8125, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 26
+      y: 85
+      width: 16
+      height: 8
+    spriteID: 26031b05f8404184d9372c6cca1e4731
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 26, y: 85}
+  - name: IceGround_Frame_20
+    originalName: 
+    pivot: {x: 0.8125, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 26
+      y: 101
+      width: 16
+      height: 5
+    spriteID: 5ce1ac7fa6606d341912cb189ca8b756
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 26, y: 101}
+  - name: IceGround_Frame_21
+    originalName: 
+    pivot: {x: 0.8235294, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 26
+      y: 114
+      width: 17
+      height: 4
+    spriteID: 4b4449cf2b9ed0f4196d24aec022793b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 26, y: 114}
+  - name: IceGround_Frame_22
+    originalName: 
+    pivot: {x: 0.8125, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 98
+      y: 4
+      width: 16
+      height: 1
+    spriteID: 68ef27a25f1476c4e8d850195c9ebb4a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 98, y: 4}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -1131545598
+    name: IceGround
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: IceGround_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 3
+        y: 0
+        width: 11
+        height: 1
+      spriteId: 9d4dc2a6897633143a300cb58e408731
+    - name: IceGround_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 2
+        y: 0
+        width: 13
+        height: 4
+      spriteId: f0f7e4d733e3c7e478faa28c756baad9
+    - name: IceGround_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 3
+        y: 2
+        width: 13
+        height: 10
+      spriteId: 865899a283d6db54abeb608cc4596990
+    - name: IceGround_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 5
+        y: 7
+        width: 13
+        height: 10
+      spriteId: 818ddfc0b68230f40812e8a439e92b4e
+    - name: IceGround_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 5
+        y: 8
+        width: 13
+        height: 10
+      spriteId: 20c1f8fe84f92e64796ee0ffa6404eab
+    - name: IceGround_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 4
+        y: 9
+        width: 13
+        height: 10
+      spriteId: 6bd26e93c385732479d7fa5a362aa61c
+    - name: IceGround_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 4
+        y: 9
+        width: 13
+        height: 10
+      spriteId: 02d68b80fc2990948b61bba8cff74402
+    - name: IceGround_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 4
+        y: 8
+        width: 13
+        height: 10
+      spriteId: 7a507601fc92bba45b41575195a85824
+    - name: IceGround_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 4
+        y: 7
+        width: 13
+        height: 10
+      spriteId: bc5eab09b331fd74eb296cce74039fa2
+    - name: IceGround_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 4
+        y: 8
+        width: 13
+        height: 10
+      spriteId: 2edbe9a8b7df15741ba29110696ff93b
+    - name: IceGround_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 4
+        y: 9
+        width: 13
+        height: 10
+      spriteId: 9da90f3b746da2c41ad09b8cfff0dc47
+    - name: IceGround_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 2
+        y: 9
+        width: 17
+        height: 10
+      spriteId: 9a9657e90c0a8c848ab40ab625140243
+    - name: IceGround_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 1
+        y: 9
+        width: 18
+        height: 10
+      spriteId: f1bfa343922884145a9ce4685cb54842
+    - name: IceGround_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 1
+        y: 9
+        width: 18
+        height: 10
+      spriteId: c839291d440dc4e43a47d777e8ae9d20
+    - name: IceGround_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 1
+        y: 9
+        width: 18
+        height: 10
+      spriteId: b8eb21c0a7f9f014d96f281ef5fb8ae3
+    - name: IceGround_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 1
+        y: 9
+        width: 18
+        height: 10
+      spriteId: a9aebe7a303d577499140380931c677a
+    - name: IceGround_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 7
+        y: 8
+        width: 12
+        height: 11
+      spriteId: ca8299fca78a5d343b354f5acca34bec
+    - name: IceGround_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 5
+        y: 2
+        width: 14
+        height: 24
+      spriteId: 92cc1aeba59a5294683cc718ddb68fd6
+    - name: IceGround_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 2
+        y: 0
+        width: 17
+        height: 19
+      spriteId: 56a7f9510f18efb42acc18ac3f72f611
+    - name: IceGround_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 3
+        y: 0
+        width: 16
+        height: 8
+      spriteId: 26031b05f8404184d9372c6cca1e4731
+    - name: IceGround_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 3
+        y: 0
+        width: 16
+        height: 5
+      spriteId: 5ce1ac7fa6606d341912cb189ca8b756
+    - name: IceGround_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: 2
+        y: 0
+        width: 17
+        height: 4
+      spriteId: 4b4449cf2b9ed0f4196d24aec022793b
+    - name: IceGround_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: 3
+        y: 0
+        width: 16
+        height: 1
+      spriteId: 68ef27a25f1476c4e8d850195c9ebb4a
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 32, y: 32}
