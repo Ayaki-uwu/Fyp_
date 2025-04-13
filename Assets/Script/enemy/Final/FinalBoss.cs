@@ -58,6 +58,9 @@ public class FinalBoss : enemy
     private Entity SpawnerTriggerEntity;
     private int laserCount;
 
+    private bool isBusy = false;
+    int waveCount;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -76,6 +79,7 @@ public class FinalBoss : enemy
         goingUp = true;
         shouldFlip = false;
         myRigidbody = GetComponent<Rigidbody2D>();
+        waveCount = 5;
 
         entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
         FinalBossEntity = entityManager.CreateEntity();
@@ -119,7 +123,7 @@ public class FinalBoss : enemy
             nextFireTime = Time.time + cooldownTime; // Update the next fire time 
         }
 
-        // ControlPlayerSpider();
+        ControlPlayerSpider();
         if (Input.GetKeyDown(KeyCode.C)) {
             // DragPlayer();
             LaserAOE();
@@ -143,11 +147,13 @@ public class FinalBoss : enemy
             cooldownTime =1f;
             webCount=4;
             bossState = BossState.Aggressive;
+            waveCount=7;
         }
         else if (healthPercentage < 0.3f)
         {
             cooldownTime = 1f;
             webCount=5;
+            waveCount=10;
         }
     }
 
@@ -202,6 +208,8 @@ public class FinalBoss : enemy
 
     void DecideAction()
     {
+        if (isBusy) return;
+
         float Drag =  0.34f;
         float Laser = 0.34f;
         float Web = 0.33f;
@@ -226,7 +234,7 @@ public class FinalBoss : enemy
         else if (randomValue < Drag + Laser + Web)
         {
             Debug.Log("Boss Web Attack!");
-            ShootWeb();
+            StartCoroutine(ShootWebCoroutine());
         }
     }
 
@@ -298,7 +306,7 @@ public class FinalBoss : enemy
     {
         float[] angleSteps = { 15f, 30f, 45f }; // Possible angle step patterns
         float chosenAngleStep = angleSteps[Random.Range(0, angleSteps.Length)]; // Random angle step
-        int waveCount = 5; // Number of laser waves
+        // int waveCount = 5; // Number of laser waves
         float waveInterval = 1f; // Time between waves
         float minSpeed = 0.5f, maxSpeed = 2f; // Laser speed range
 
@@ -362,6 +370,7 @@ public class FinalBoss : enemy
 
     private IEnumerator LaserWaveCoroutine(float angleStep, int waveCount, float waveInterval, float minSpeed, float maxSpeed)
     {
+        isBusy = true;
         for (int wave = 0; wave < waveCount; wave++)
         {
             // float randomStartAngle = Random.Range(0f, angleStep); // Randomize initial angle
@@ -390,6 +399,7 @@ public class FinalBoss : enemy
 
             yield return new WaitForSeconds(waveInterval); // Delay before next wave
         }
+        isBusy = false;
     }
 
     void ShootWeb()
@@ -425,6 +435,42 @@ public class FinalBoss : enemy
 
             webist.Add(web); // Add to the list if needed
         }
+    }
+
+    private IEnumerator ShootWebCoroutine()
+    {
+        isBusy = true;
+
+        if (webPrefab == null)
+        {
+            Debug.LogError("webPrefab is not assigned!");
+            yield break;
+        }
+
+        float spreadAngle = 15f;
+        Vector2 baseDirection = (target.position - shootPoint.position).normalized;
+
+        for (int i = 0; i < webCount; i++)
+        {
+            float angleOffset = (i - 1) * spreadAngle;
+            Vector2 rotatedDirection = RotateVector(baseDirection, angleOffset);
+
+            GameObject web = Instantiate(webPrefab, shootPoint.position, Quaternion.identity);
+
+            Rigidbody2D webRb = web.GetComponent<Rigidbody2D>();
+            cobWeb cobWebScript = web.GetComponent<cobWeb>();
+
+            if (webRb != null)
+            {
+                webRb.velocity = rotatedDirection * webSpeed;
+                cobWebScript.SetDirection(rotatedDirection);
+            }
+
+            webist.Add(web);
+        }
+
+        yield return new WaitForSeconds(0.5f); // Delay before allowing next skill
+        isBusy = false;
     }
 
     void SpawnLaserBarrage()
@@ -472,6 +518,7 @@ public class FinalBoss : enemy
 
     private IEnumerator DragCoroutine()
     {
+        isBusy = true;
         Draging = true;
         float dragDuration = 2f;
         float elapsed = 0f;
@@ -496,6 +543,7 @@ public class FinalBoss : enemy
 
         playerScript.BeingDrag = false;
         Draging = false;
+        isBusy = false;
     }
 
     

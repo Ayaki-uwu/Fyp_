@@ -21,6 +21,7 @@ TagManager:
   - answers
   - Boss
   - map
+  - PoisonZone
   layers:
   - Default
   - TransparentFX

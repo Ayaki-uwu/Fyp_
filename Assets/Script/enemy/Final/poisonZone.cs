@@ -39,6 +39,7 @@ public class poisonZone : MonoBehaviour
         {
             if (playerScript != null && playerScript.alive && !playerScript.isInvulnerable)
             {
+                PostProcessingManager.Instance.HurtEffect();
                 playerScript.currenthealth -= poisonDamage;
                 playerScript.UpdateHealth();
                 playerScript.StartCoroutine(playerScript.TemporaryInvulnerability());

@@ -132,6 +132,8 @@ public class player : MonoBehaviour
     private bool isTakingDamage = false;
     public bool isInvulnerable = false;
 
+    private Coroutine poisonCoroutine;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -206,6 +208,12 @@ public class player : MonoBehaviour
         if (enableRegen && regenCoroutine == null)
         {
             regenCoroutine = StartCoroutine(RegenerateHealth());
+        }
+
+        if (enableRegen && regenCoroutine == null && alive && currenthealth < maxhealth)
+        {
+            regenCoroutine = StartCoroutine(RegenerateHealth());
+            Debug.Log("✅ Regen coroutine forced on scene load");
         }
     }
     public void ResetPlayerData()
@@ -827,6 +835,34 @@ public class player : MonoBehaviour
                 Debug.Log("Player in Crystal Range: ");
             }
         }
+
+        if (other.CompareTag("PoisonZone"))
+        {   
+            if(poisonCoroutine == null)
+                poisonCoroutine = StartCoroutine(ApplyPoisonDamage());
+        }
+    }
+
+    private IEnumerator ApplyPoisonDamage()
+    {
+        while (true)
+        {
+            if (alive && !isInvulnerable)
+            {
+                PostProcessingManager.Instance.HurtEffect();
+                currenthealth -= 1;
+                UpdateHealth();
+                StartCoroutine(TemporaryInvulnerability());
+                if (regenCoroutine != null)
+                {
+                    StopCoroutine(regenCoroutine);
+                    regenCoroutine = null;
+                }
+                Debug.Log("☠️ Poison zone damage: " + 1);
+            }
+
+            yield return new WaitForSeconds(1f);
+        }
     }
     public void SavePlayerData()
     {
@@ -852,6 +888,14 @@ public class player : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        if (other.CompareTag("PoisonZone"))
+        {
+            if (poisonCoroutine != null)
+            {
+                StopCoroutine(poisonCoroutine);
+                poisonCoroutine = null;
+            }
+        }
         if (other.CompareTag("Enemy") || other.CompareTag("Boss"))
         {
             Debug.Log("Exit!!!! ");
