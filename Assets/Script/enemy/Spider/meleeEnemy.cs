@@ -47,10 +47,10 @@ public class meleeEnemy : enemy
     }
     void FixedUpdate()
     {
-        if (!control)
-        {
-            return;
-        }
+        // if (!control)
+        // {
+        //     return;
+        // }
         if (shouldMove)
         {
             Vector3 temp = Vector3.MoveTowards(transform.position, movementTarget, moveSpeed * Time.fixedDeltaTime);

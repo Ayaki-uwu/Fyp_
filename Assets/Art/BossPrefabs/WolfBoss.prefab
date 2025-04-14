@@ -195,6 +195,7 @@ MonoBehaviour:
   enemyName: IceyWolf
   baseAttack: 3
   moveSpeed: 6
+  control: 0
   wolfState: 0
   target: {fileID: 6663083456527696808, guid: 840671d96972e984586108cc7adf62b0, type: 3}
   iceSharpPrefab: {fileID: 7446145313950602666, guid: b8f953d79578441488b375cf6ea6472b, type: 3}
@@ -204,7 +205,7 @@ MonoBehaviour:
   cooldownTime: 3
   tubesPos: []
   iceFloorPrefab: {fileID: 5639890183717653520, guid: 26a5f51ca87b78848bbb906f8234e365, type: 3}
-  wolfchip: {fileID: 7446145313950602666, guid: b8f953d79578441488b375cf6ea6472b, type: 3}
+  wolfchip: {fileID: 8686271337473371791, guid: 6ba5037331f111a4cb123da0174bb443, type: 3}
   isDashing: 0
   uiFill: {fileID: 4922563666368253856, guid: 5af2904eb71d19346bd7378afdff88d3, type: 3}
   canvas: {fileID: 3841265516939410558, guid: e94b76bf7437d0d4b9d6471a5077f46c, type: 3}

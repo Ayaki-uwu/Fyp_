@@ -19,6 +19,7 @@ public class FinalBoss : enemy
     public float cooldownTime;
     private float nextFireTime = 0f;
     private bool Draging;
+    private float dragforce;
     [SerializeField] private GameObject laserEffectPrefab;
 
     //Web
@@ -60,6 +61,7 @@ public class FinalBoss : enemy
 
     private bool isBusy = false;
     int waveCount;
+    public GameObject GameWinUi;
 
     // Start is called before the first frame update
     void Start()
@@ -74,6 +76,7 @@ public class FinalBoss : enemy
         Draging = false;
         webist = new List<GameObject>();
         webCount = 3;
+        dragforce = 5f;
         moveDir.Normalize();
         UpNDownmoveDir.Normalize();
         goingUp = true;
@@ -148,12 +151,14 @@ public class FinalBoss : enemy
             webCount=4;
             bossState = BossState.Aggressive;
             waveCount=7;
+            dragforce=7f;
         }
         else if (healthPercentage < 0.3f)
         {
             cooldownTime = 1f;
             webCount=5;
             waveCount=10;
+            dragforce = 9f;
         }
     }
 
@@ -534,7 +539,7 @@ public class FinalBoss : enemy
 
             if (rb != null)
             {
-                rb.AddForce(dragDirection * 5f); // Adjust force magnitude as needed
+                rb.AddForce(dragDirection * dragforce); // Adjust force magnitude as needed
             }
 
             elapsed += Time.deltaTime;
@@ -601,4 +606,21 @@ public class FinalBoss : enemy
     //     Gizmos.DrawWireSphere(transform.position, 2f);
     // }
 
+    protected override void Die()
+    {
+        Debug.Log(enemyName + " (Wolf Boss) has been destroyed!");
+        // OnBossDied?.Invoke();
+        base.Die();
+        DestroyAllEnemies();
+        GameWinUi.SetActive(true);
+    }
+
+    private void DestroyAllEnemies()
+    {
+        foreach (GameObject web in webist)
+        {
+            Destroy(web);
+        }
+        webist.Clear();
+    }
 }

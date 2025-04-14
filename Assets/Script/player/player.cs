@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
+using UnityEngine.UI;
 
 public class player : MonoBehaviour
 {
@@ -133,6 +134,8 @@ public class player : MonoBehaviour
     public bool isInvulnerable = false;
 
     private Coroutine poisonCoroutine;
+    [SerializeField]
+    public GameObject DeadUI;
 
     // Start is called before the first frame update
     private void Awake()
@@ -170,6 +173,7 @@ public class player : MonoBehaviour
         UpdateBulletCountText();
         UpdateStateText();
         UpdateHealth();
+        DeadUI.SetActive(false);
         
 
         chipBag.RestoreCollectedChips(playerData.collectedChips);
@@ -210,7 +214,7 @@ public class player : MonoBehaviour
             regenCoroutine = StartCoroutine(RegenerateHealth());
         }
 
-        if (enableRegen && regenCoroutine == null && alive && currenthealth < maxhealth)
+        if (enableRegen && regenCoroutine == null && alive && currenthealth <= maxhealth)
         {
             regenCoroutine = StartCoroutine(RegenerateHealth());
             Debug.Log("✅ Regen coroutine forced on scene load");
@@ -230,6 +234,10 @@ public class player : MonoBehaviour
         Debug.Log(enableRegen+"Regenbable");
         Debug.Log(regenCoroutine+"regenCoroutine");
         Debug.Log(recentlyDamaged+"recentlyDamaged");
+        if (!alive)
+        {
+            DeadUI.SetActive(true);
+        }
         if (!Controlable)
         {
             return;
@@ -311,6 +319,11 @@ public class player : MonoBehaviour
             {
                 playerState = PlayerState.SpiderGun;
                 // Debug.Log("Switched to SpiderGun mode " + playerState);
+            }
+            else if (chipBag.GetEquippedChip()=="WolfChip")
+            {
+                playerState = PlayerState.FireGun;
+                regenInterval = 1f;
             }
         }
 
@@ -451,6 +464,7 @@ public class player : MonoBehaviour
             StopCoroutine(regenCoroutine);
             regenCoroutine = null;
         }
+        DeadUI.SetActive(true);
         
     }
 
@@ -798,6 +812,7 @@ public class player : MonoBehaviour
                 }
             }
             Destroy(other.gameObject);
+            StartCoroutine(DamageRegenCooldown());
         }
 
         if (other.CompareTag("IceSharp"))
@@ -824,6 +839,7 @@ public class player : MonoBehaviour
                 //     }
             }
             Destroy(other.gameObject);
+            StartCoroutine(DamageRegenCooldown());
         }
 
         if (other.CompareTag("tubes"))
@@ -862,6 +878,7 @@ public class player : MonoBehaviour
             }
 
             yield return new WaitForSeconds(1f);
+            StartCoroutine(DamageRegenCooldown());
         }
     }
     public void SavePlayerData()

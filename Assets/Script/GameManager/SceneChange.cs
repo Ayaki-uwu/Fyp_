@@ -22,6 +22,12 @@ public class SceneChange : MonoBehaviour
         }
         SceneManager.LoadScene(sceneToload);
     }
+
+    public void quitGame(){
+        Application.Quit();
+    }
+
+    
     private void OnTriggerEnter2D(Collider2D other) 
     {
         if (other.CompareTag("Player"))

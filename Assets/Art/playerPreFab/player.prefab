@@ -147,6 +147,7 @@ MonoBehaviour:
   damageInterval: 2
   damageInvulnDuration: 1
   isInvulnerable: 0
+  DeadUI: {fileID: 7072653528678677361, guid: 6ef836bd30f5c2f4f8db66cd4c79e108, type: 3}
 --- !u!61 &4801945209970218621
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -54,6 +54,7 @@ public class WolfBoss : enemy
     public GameObject playerArrowPrefab;
     public float arrowDistanceFromPlayer = 0.5f;
     private GameObject arrowInstance;  
+    private bool isBusy = false;
 
     void Awake(){
         if (Instance == null)
@@ -142,6 +143,11 @@ public class WolfBoss : enemy
         switch (wolfState)
         {
             case WolfState.Normal:
+                if (isBusy)
+                {
+                    return;
+                }
+
                 if (!isDashing)
                 {
                     float healthPercentage = (float)health / (float)maxHP;
@@ -367,6 +373,7 @@ public class WolfBoss : enemy
     float waveInterval
     )
     {
+        isBusy = true;
         for (int wave = 0; wave < waveCount; wave++)
         {
             StartCoroutine(CircleWave(
@@ -380,10 +387,12 @@ public class WolfBoss : enemy
             yield return new WaitForSeconds(waveInterval);
         }
         NextSkill = true;
+        isBusy = false;
     }
 
     private IEnumerator CircleWave(int count, float radius, float moveSpeed, float duration, float rotationSpeed)
     {
+        isBusy = true;
         Vector2 playerPos = target.position;
         Vector2 origin = transform.position;
 
@@ -419,6 +428,7 @@ public class WolfBoss : enemy
 
         // Destroy center and all children (ice projectiles)
         Destroy(center);
+        isBusy = false;
     }
 
 
@@ -496,6 +506,7 @@ public class WolfBoss : enemy
         // OnBossDied?.Invoke();
         base.Die();
         GameObject chip = Instantiate(wolfchip, shootPoint.position, Quaternion.identity);
+        chip.name = "WolfChip";
     }
 
     public void IceRain()
@@ -584,7 +595,9 @@ public class WolfBoss : enemy
 
 
     private IEnumerator Absorbing(GameObject tube)
-    {   Tubes tubeScript = tube.GetComponent<Tubes>();
+    {   
+        isBusy = true;
+        Tubes tubeScript = tube.GetComponent<Tubes>();
         int Timer  = AbsorbTime;
         while (Timer >0)
         {
@@ -599,7 +612,9 @@ public class WolfBoss : enemy
             tubeScript.SetState(Tubes.TubeState.Absorbed);
             wolfState = WolfState.AbsorbSuccess;
         }
+        isBusy = false;
     }
+
     private IEnumerator RicochetDash(float duration, float speed)
     {
         isDashing = true;
@@ -739,7 +754,7 @@ public class WolfBoss : enemy
     private IEnumerator SpawnIceRain(int count, Vector2 minBounds, Vector2 maxBounds)
     {
         float delayBetweenDrops = 0.3f; // Time delay between each drop
-
+        isBusy = true;
         for (int i = 0; i < count; i++)
         {
             Vector2 randomPosition = new Vector2(
@@ -752,7 +767,7 @@ public class WolfBoss : enemy
 
             yield return new WaitForSeconds(delayBetweenDrops); // Wait before spawning the next one
         }
-
+        isBusy = false;
         Debug.Log("Ice Rain finished!");
         
     }
