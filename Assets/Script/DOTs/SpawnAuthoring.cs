@@ -10,10 +10,8 @@ public class SpawnerAuthoring : MonoBehaviour
         {
             Entity entity = GetEntity(TransformUsageFlags.None);
             AddComponent(entity, new SpawnerConfig{
-                // smallSpiderPrefab = GetEntity(DataCenter._smallSpiderPrefab, TransformUsageFlags.Dynamic),
                 smallSpiderPrefab = GetEntity(authoring.smallSpiderPrefab, TransformUsageFlags.Dynamic),
                 Amount = DataCenter._SpiderCount,
-
                 MinX = DataCenter._MinX, // bound of camera
                 MinY = DataCenter._MinY,
                 MaxX = DataCenter._MaxX,
