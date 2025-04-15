@@ -55,6 +55,8 @@ public class WolfBoss : enemy
     public float arrowDistanceFromPlayer = 0.5f;
     private GameObject arrowInstance;  
     private bool isBusy = false;
+    [SerializeField]
+    int iceCount;
 
     void Awake(){
         if (Instance == null)
@@ -87,6 +89,7 @@ public class WolfBoss : enemy
         AbsorbCounter = 0;
         Debug.Log(absorbHPlist.Count);
         wolfState = WolfState.Idel;
+        iceCount=20;
         // IceRain();
     }
 
@@ -150,36 +153,38 @@ public class WolfBoss : enemy
 
                 if (!isDashing)
                 {
-                    float healthPercentage = (float)health / (float)maxHP;
+                    int skills = Random.Range(1, 3);
 
-                    float dash = healthPercentage > 0.5f ? 0.3f : 0.4f; // Higher chance when health is > 50%
-                    float shoot = healthPercentage > 0.5f ? 0.4f : 0.3f; // Higher chance when health is <= 50%
-                    float wall = healthPercentage > 0.5f ? 0.3f : 0.3f;
+                    // float healthPercentage = (float)health / (float)maxHP;
 
-                    // Normalize weights (ensure they sum to 1)
-                    float totalWeight = dash + shoot + wall;
-                    dash /= totalWeight;
-                    shoot /= totalWeight;
-                    wall /= totalWeight;
+                    // float dash = healthPercentage > 0.5f ? 0.3f : 0.4f; // Higher chance when health is > 50%
+                    // float shoot = healthPercentage > 0.5f ? 0.4f : 0.3f; // Higher chance when health is <= 50%
+                    // float wall = healthPercentage > 0.5f ? 0.3f : 0.3f;
+
+                    // // Normalize weights (ensure they sum to 1)
+                    // float totalWeight = dash + shoot + wall;
+                    // dash /= totalWeight;
+                    // shoot /= totalWeight;
+                    // wall /= totalWeight;
                         
-                    // Randomly decide action based on weights
-                    float randomValue = Random.value; // Random number between 0 and 1
+                    // // Randomly decide action based on weights
+                    // float randomValue = Random.value; // Random number between 0 and 1
 
 
-                    if (randomValue < dash && canDash)
+                    if (skills==1 && canDash)
                     {
                         Debug.Log("Wolf decided to... dash");
                         DashPlayer();
                         canDash = false;
                         NextSkill = false;
                     }
-                    else if (randomValue < dash + shoot)
+                    else if (skills==2)
                     {
                         Debug.Log("Wolf decided to... shoot");
                         ThrowIce();
                         NextSkill = false;
                     }
-                    else if (randomValue < dash + shoot + wall)
+                    else if (skills==3)
                     {
                         IceWall(); 
                         NextSkill = false;
@@ -198,6 +203,7 @@ public class WolfBoss : enemy
 
             case WolfState.AbsorbFail:
                 wolfState = WolfState.Normal;
+                iceCount += 10;
                 break;
                 
             default:
@@ -226,16 +232,26 @@ public class WolfBoss : enemy
     void Aggression()
     {
         float healthPercentage = (float)health / (float)maxHP;
-        if (healthPercentage < 0.5f) 
-        {
-            AbsorbTime = 3;
-            cooldownTime =1f;
-        }
-        else if (healthPercentage < 0.3f)
+
+        if (healthPercentage < 0.3f)
         {
             AbsorbTime = 2;
             cooldownTime = 0.5f;
+            iceCount+=5;
         }
+
+        else if (healthPercentage < 0.5f) 
+        {
+            AbsorbTime = 3;
+            cooldownTime =1f;
+            iceCount +=5;
+        }
+        // else if (healthPercentage < 0.3f)
+        // {
+        //     AbsorbTime = 2;
+        //     cooldownTime = 0.5f;
+        //     iceCount+=5;
+        // }
     }
 
     void DashPlayer()
@@ -514,8 +530,8 @@ public class WolfBoss : enemy
         Debug.Log("Ice Rain skill activated!");
 
         int iceCount = 20; // Number of ice pieces to drop
-        Vector2 mapMinBounds = new Vector2(-8f, -6.5f); // Adjust these based on map size
-        Vector2 mapMaxBounds = new Vector2(3.7f, 0f);
+        Vector2 mapMinBounds = new Vector2(-9.5f, -6.8f); // Adjust these based on map size
+        Vector2 mapMaxBounds = new Vector2(3.8f, 1.6f);
 
         StartCoroutine(SpawnIceRain(iceCount, mapMinBounds, mapMaxBounds));
     }

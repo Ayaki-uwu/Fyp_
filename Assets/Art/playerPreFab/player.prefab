@@ -140,7 +140,7 @@ MonoBehaviour:
   BossMap: {fileID: 0}
   playerData: {fileID: 11400000, guid: 2fe9cc6342da4c44b8a81d7d44abcab1, type: 2}
   enableRegen: 1
-  regenInterval: 1
+  regenInterval: 5
   regenAmount: 1
   regenCapThreshold: 10
   regenCooldownAfterDamage: 2

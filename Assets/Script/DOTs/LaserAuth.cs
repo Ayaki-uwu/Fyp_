@@ -14,7 +14,7 @@ public class LaserAuthoring : MonoBehaviour
     {
         public override void Bake(LaserAuthoring authoring)
         {
-            Entity entity = GetEntity(TransformUsageFlags.Dynamic);
+            Entity entity = GetEntity(TransformUsageFlags.None);
             AddComponent(entity, new LaserSpawnerConfig
             {
                 Barrage = GetEntity(authoring.laserPrefab, TransformUsageFlags.Dynamic),

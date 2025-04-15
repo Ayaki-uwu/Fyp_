@@ -79,7 +79,7 @@ public class Tubes : MonoBehaviour
 
     public bool isBroken()
     {
-        return tubeState == TubeState.Broken;
+        return tubeState == TubeState.Broken || tubeState == TubeState.Absorbed;
     }
 
     public bool isAbleToBreak()

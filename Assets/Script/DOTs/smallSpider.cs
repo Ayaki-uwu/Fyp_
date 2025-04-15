@@ -6,7 +6,6 @@ using Unity.Collections;
 public struct smallSpiderCompoent : IComponentData
 {
     public int health;
-    // public int maxHP;
     public float moveSpeed;
     public SpiderState spiderState;
     public bool hasHitPlayer; 

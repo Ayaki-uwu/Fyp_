@@ -12,7 +12,7 @@ public class ChipUIManager : MonoBehaviour
     public GameObject wolfChipButton;
     public Transform chipButtonParent;
 
-    public TextMeshProUGUI bulletNum;
+    // public TextMeshProUGUI bulletNum;
 
     public Image gunStateImage;
     public Image chipStateImage;
@@ -54,7 +54,7 @@ public class ChipUIManager : MonoBehaviour
             PostProcessingManager.Instance.HurtEffect();
         }
         UpdateGunStateImages();
-        bulletNum.text = $"{playerScript.bulletCount} / {playerScript.maxbulletCount}";
+        // bulletNum.text = $"{playerScript.bulletCount} / {playerScript.maxbulletCount}";
     }
 
     void InitiateChipUI()

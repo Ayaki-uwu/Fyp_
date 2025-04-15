@@ -119,7 +119,7 @@ public class player : MonoBehaviour
 
     [Header("Health Regen Settings")]
     public bool enableRegen = true;          // Toggle regeneration on/off
-    public float regenInterval = 5f;         // Time between regen ticks
+    public float regenInterval = 4f;         // Time between regen ticks
     public int regenAmount = 1;              // How much HP to regenerate per tick
     public int regenCapThreshold = 10;      // Stop regen if at or above this HP
 
@@ -128,7 +128,7 @@ public class player : MonoBehaviour
     public float regenCooldownAfterDamage = 2f;
 
     [Header("Damage Settings")]
-    public float damageInterval = 2f;      // How often you can take damage from enemies in range
+    public float damageInterval = 1f;      // How often you can take damage from enemies in range
     public float damageInvulnDuration = 1f; // Time after damage when player becomes immune
     private bool isTakingDamage = false;
     public bool isInvulnerable = false;
@@ -192,10 +192,24 @@ public class player : MonoBehaviour
         // spawnerEntity = entityManager.CreateEntity();
 
         // Add the PlayerDataComponent to the player entity
-        entityManager.AddComponentData(playerEntity, new playerComponent
+        // entityManager.AddComponentData(playerEntity, new playerComponent
+        // {
+        //     position = transform.position, // Set the position
+        //  });
+        
+        if (!entityManager.CreateEntityQuery(typeof(playerComponent)).CalculateEntityCount().Equals(0))
         {
-            position = transform.position, // Set the position
-         });
+            Debug.LogWarning("playerComponent already exists. Skipping creation.");
+        }
+        else
+        {
+            playerEntity = entityManager.CreateEntity();
+            entityManager.AddComponentData(playerEntity, new playerComponent
+            {
+                position = transform.position,
+            });
+        }
+
         Controlable = true;
         miniGame = false;
         // spawnerEntity = Entity.Null;
@@ -228,6 +242,16 @@ public class player : MonoBehaviour
         playerData.equippedChip = null;
     }
 
+    public void DestroyEntity()
+    {
+        if (!entityManager.CreateEntityQuery(typeof(playerComponent)).CalculateEntityCount().Equals(0))
+        {
+            EntityQuery query = entityManager.CreateEntityQuery(typeof(playerComponent));
+            entityManager.DestroyEntity(query);
+            Debug.LogWarning("playerComponent already exists. Skipping creation.");
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -246,7 +270,7 @@ public class player : MonoBehaviour
         {
             return;
         }
-        UpdateFirepoint();
+        // UpdateFirepoint();
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         // change = Vector3.zero;
@@ -323,7 +347,7 @@ public class player : MonoBehaviour
             else if (chipBag.GetEquippedChip()=="WolfChip")
             {
                 playerState = PlayerState.FireGun;
-                regenInterval = 1f;
+                regenInterval = 2f;
             }
         }
 
@@ -388,10 +412,10 @@ public class player : MonoBehaviour
             crystalInRange.GetComponent<MiniGameActivate>().StartMinigame();
         }
 
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            StartCoroutine(TemporaryInvulnerability());
-        }
+        // if (Input.GetKeyDown(KeyCode.N))
+        // {
+        //     StartCoroutine(TemporaryInvulnerability());
+        // }
 
         if (!bossDefeated && Boss == null)
         {
@@ -748,9 +772,9 @@ public class player : MonoBehaviour
             Debug.Log("Enter!!!! ");
             enemiesInRange.Add(other);
             if (!isTakingDamage)
-        {
-            StartCoroutine(DamageOverTime());
-        }
+            {
+                StartCoroutine(DamageOverTime());
+            }
         }
 
         if (other.CompareTag("dect"))
@@ -876,9 +900,9 @@ public class player : MonoBehaviour
                 }
                 Debug.Log("☠️ Poison zone damage: " + 1);
             }
-
-            yield return new WaitForSeconds(1f);
             StartCoroutine(DamageRegenCooldown());
+            yield return new WaitForSeconds(1f);
+            
         }
     }
     public void SavePlayerData()

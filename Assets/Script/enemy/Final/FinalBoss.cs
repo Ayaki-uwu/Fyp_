@@ -11,7 +11,15 @@ public class FinalBoss : enemy
         Dash,
         Aggressive
     }
+    public enum BossPhrase{
+        inti,
+        mid,
+        final
+    }
+    public GameObject iceSharpPrefab;
+    public GameObject iceFloorPrefab;
     public BossState bossState = BossState.Idle;
+    public BossPhrase bossPhrase = BossPhrase.inti;
     public Transform target;
     private player playerScript;
     private Rigidbody2D myRigidbody;
@@ -145,20 +153,22 @@ public class FinalBoss : enemy
     void Aggression()
     {
         float healthPercentage = (float)health / (float)maxHP;
-        if (healthPercentage < 0.5f) 
-        {
-            cooldownTime =1f;
-            webCount=4;
-            bossState = BossState.Aggressive;
-            waveCount=7;
-            dragforce=7f;
-        }
-        else if (healthPercentage < 0.3f)
+        if (healthPercentage < 0.3f) 
         {
             cooldownTime = 1f;
             webCount=5;
-            waveCount=10;
+            waveCount=7;
             dragforce = 9f;
+            bossPhrase = BossPhrase.final;
+            bossState = BossState.Aggressive;
+        }
+        else if (healthPercentage < 0.5f)
+        {
+            cooldownTime =1f;
+            webCount=4;
+            waveCount=6;
+            dragforce=7f;
+            bossPhrase = BossPhrase.mid;
         }
     }
 
@@ -214,32 +224,82 @@ public class FinalBoss : enemy
     void DecideAction()
     {
         if (isBusy) return;
-
-        float Drag =  0.34f;
-        float Laser = 0.34f;
-        float Web = 0.33f;
-
-        float totalWeight = Drag + Laser + Web;
-        float randomValue = Random.value;
-
-        Drag /= totalWeight;
-        Laser /= totalWeight;
-        Web /= totalWeight;
-
-        if (randomValue < Drag && !Draging)
+        switch (bossPhrase)
         {
-            Debug.Log("Boss drag player");
-            DragPlayer();
-        }
-        else if (randomValue < Drag + Laser)
-        {
-            Debug.Log("Boss Lasering");
-            LaserAOE();
-        }
-        else if (randomValue < Drag + Laser + Web)
-        {
-            Debug.Log("Boss Web Attack!");
-            StartCoroutine(ShootWebCoroutine());
+            case BossPhrase.inti:
+                int skills = Random.Range(1, 3);
+
+                if (skills==1 && !Draging)
+                {
+                    Debug.Log("Boss drag player");
+                    DragPlayer();
+                }
+                else if (skills==2)
+                {
+                    Debug.Log("Boss Lasering");
+                    LaserAOE();
+                }
+                else if (skills==3)
+                {
+                    Debug.Log("Boss Web Attack!");
+                    StartCoroutine(ShootWebCoroutine());
+                }
+            break;
+
+            case BossPhrase.mid:
+                int moreskills = Random.Range(1, 5);
+
+                if (moreskills==1 && !Draging)
+                {
+                    Debug.Log("Boss drag player");
+                    DragPlayer();
+                }
+                else if (moreskills==2 ||moreskills== 3)
+                {
+                    Debug.Log("Boss Lasering");
+                    LaserAOE();
+                }
+                else if (moreskills==4)
+                {
+                    Debug.Log("Boss Web Attack!");
+                    StartCoroutine(ShootWebCoroutine());
+                }
+                else if (moreskills == 5)
+                {
+                    Debug.Log("Boss Ice Wall!");
+                    IceWall();
+                }
+            break;
+
+            case BossPhrase.final:
+                int finalskillSet = Random.Range(1, 7);
+
+                if (finalskillSet==1 && !Draging)
+                {
+                    Debug.Log("Boss drag player");
+                    DragPlayer();
+                }
+                else if (finalskillSet==2 ||finalskillSet== 3)
+                {
+                    Debug.Log("Boss Lasering");
+                    LaserAOE();
+                }
+                else if (finalskillSet==4)
+                {
+                    Debug.Log("Boss Web Attack!");
+                    StartCoroutine(ShootWebCoroutine());
+                }
+                else if (finalskillSet == 5)
+                {
+                    Debug.Log("Boss Ice Wall!");
+                    IceWall();
+                }
+                else if (finalskillSet== 6 ||finalskillSet== 7)
+                {
+                    Debug.Log("Boss Ice Wall!");
+                    ThrowIce();
+                }
+            break;
         }
     }
 
@@ -405,41 +465,6 @@ public class FinalBoss : enemy
             yield return new WaitForSeconds(waveInterval); // Delay before next wave
         }
         isBusy = false;
-    }
-
-    void ShootWeb()
-    {
-        if (webPrefab == null)
-        {
-            Debug.LogError("webPrefab is not assigned in the inspector!");
-            return;
-        }
-
-        // webCount = 1; // Number of webs
-        float spreadAngle = 15f; // Angle between each web shot
-
-        // Base direction towards the player
-        Vector2 baseDirection = (target.position - shootPoint.position).normalized;
-
-        for (int i = 0; i < webCount; i++)
-        {
-            float angleOffset = (i - 1) * spreadAngle; // Spread angles: -15, 0, +15
-            Vector2 rotatedDirection = RotateVector(baseDirection, angleOffset); // Rotate direction
-
-            // Instantiate web
-            GameObject web = Instantiate(webPrefab, shootPoint.position, Quaternion.identity);
-
-            // Apply velocity
-            Rigidbody2D webRb = web.GetComponent<Rigidbody2D>();
-            cobWeb cobWebScript = web.GetComponent<cobWeb>();
-            if (webRb != null)
-            {
-                webRb.velocity = rotatedDirection * 7f; // Adjust speed if needed
-                cobWebScript.SetDirection(rotatedDirection);
-            }
-
-            webist.Add(web); // Add to the list if needed
-        }
     }
 
     private IEnumerator ShootWebCoroutine()
@@ -613,6 +638,18 @@ public class FinalBoss : enemy
         base.Die();
         DestroyAllEnemies();
         GameWinUi.SetActive(true);
+        if (!entityManager.CreateEntityQuery(typeof(BossComponent)).CalculateEntityCount().Equals(0))
+        {
+            EntityQuery query = entityManager.CreateEntityQuery(typeof(BossComponent));
+            entityManager.DestroyEntity(query);
+            Debug.LogWarning("playerComponent already exists. Skipping creation.");
+        }
+        if (!entityManager.CreateEntityQuery(typeof(LaserSpawnerTriggerComponent)).CalculateEntityCount().Equals(0))
+        {
+            EntityQuery query = entityManager.CreateEntityQuery(typeof(LaserSpawnerTriggerComponent));
+            entityManager.DestroyEntity(query);
+            Debug.LogWarning("playerComponent already exists. Skipping creation.");
+        }
     }
 
     private void DestroyAllEnemies()
@@ -622,5 +659,171 @@ public class FinalBoss : enemy
             Destroy(web);
         }
         webist.Clear();
+    }
+
+    void IceWall()
+    {
+        Debug.Log("Ice Wall Activated!");
+
+        Rigidbody2D playerRb = player.instance.GetComponent<Rigidbody2D>();
+
+        if (playerRb == null)
+        {
+            Debug.LogError("Player Rigidbody2D not found!");
+            return;
+        }
+
+        // Use velocity if it's meaningful, fallback to input
+        Vector2 movementDirection = playerRb.velocity.magnitude > 0.1f 
+            ? playerRb.velocity.normalized 
+            : player.instance.change.normalized;
+
+        if (movementDirection.magnitude < 0.1f)
+        {
+            Debug.Log("Player is stationary, no Ice Wall spawned.");
+            return;
+        }
+
+        // Block ahead of player instead of behind
+        Vector2 spawnPosition = (Vector2)player.instance.transform.position + movementDirection * 1.5f;
+
+        float angle = Mathf.Atan2(movementDirection.y, movementDirection.x) * Mathf.Rad2Deg;
+
+        GameObject iceWall = Instantiate(iceFloorPrefab, spawnPosition, Quaternion.Euler(0, 0, angle ));
+        iceWall.tag = "wall";
+
+        Debug.Log($"Ice Wall Spawned at: {spawnPosition} facing angle: {angle}");
+    }
+
+    void ThrowIce()
+    {
+        float distance = Vector2.Distance(shootPoint.position, target.position);
+        float speed = 5f;
+
+        int pattern = Random.Range(1, 3); // Randomly pick 1 or 2
+        if (pattern == 1)
+        {
+            Debug.Log("Pattern 1: Circle Burst Toward Player");
+            StartCoroutine(MultiWaveCircleBurstTowardPlayer(
+                waveCount: 5,
+                iceCountPerWave: 6,
+                radius: 1f,
+                moveSpeed: speed,
+                duration: 2f,
+                rotationSpeed: 180f,
+                waveInterval : 1f
+            ));
+        }
+        else
+        {
+            Debug.Log("Pattern 2: Rotating Laser Style Burst");
+            StartCoroutine(IceWaveCoroutine(30f, 3, 0.8f, 5f, speed)); // 30-degree step, 3 waves, delay between, speed
+        }
+    }
+
+    public IEnumerator MultiWaveCircleBurstTowardPlayer(
+    int waveCount,
+    int iceCountPerWave,
+    float radius,
+    float moveSpeed,
+    float duration,
+    float rotationSpeed,
+    float waveInterval
+    )
+    {
+        isBusy = true;
+        for (int wave = 0; wave < waveCount; wave++)
+        {
+            StartCoroutine(CircleWave(
+                iceCountPerWave,
+                radius,
+                moveSpeed,
+                duration,
+                rotationSpeed
+            ));
+
+            yield return new WaitForSeconds(waveInterval);
+        }
+        isBusy = false;
+    }
+
+    private IEnumerator CircleWave(int count, float radius, float moveSpeed, float duration, float rotationSpeed)
+    {
+        isBusy = true;
+        Vector2 playerPos = target.position;
+        Vector2 origin = transform.position;
+
+        // Create the center point
+        GameObject center = new GameObject("IceSharpCenter");
+        center.transform.position = origin;
+
+        // Spawn and parent ice projectiles
+        for (int i = 0; i < count; i++)
+        {
+            float angle = (360f / count) * i;
+            Vector2 offset = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)) * radius;
+            Vector2 spawnPos = (Vector2)center.transform.position + offset;
+
+            GameObject ice = Instantiate(iceSharpPrefab, spawnPos, Quaternion.identity);
+            ice.transform.SetParent(center.transform); // parent to center
+        }
+
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            // Move center toward the player
+            Vector2 direction = (playerPos - (Vector2)center.transform.position).normalized;
+            center.transform.position += (Vector3)(direction * moveSpeed * Time.deltaTime);
+
+            // Rotate the whole center object to orbit ice projectiles
+            center.transform.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        // Destroy center and all children (ice projectiles)
+        Destroy(center);
+        isBusy = false;
+    }
+    private IEnumerator IceWaveCoroutine(float angleStep, int waveCount, float waveInterval, float minSpeed, float maxSpeed)
+    {
+        isBusy = true;
+        for (int wave = 0; wave < waveCount; wave++)
+        {
+            float randomStartAngle = Random.Range(0f, angleStep);
+            int iceCount = Mathf.RoundToInt(360f / angleStep);
+            float radius = 2f;
+
+            for (int i = 0; i < iceCount; i++)
+            {
+                float angle = randomStartAngle + i * angleStep;
+                Vector2 spawnPos = (Vector2)transform.position + GetPositionFromAngle(angle, radius);
+                Vector2 moveDir = GetPositionFromAngle(angle, 1f).normalized;
+                float speed = Random.Range(minSpeed, maxSpeed);
+
+                GameObject ice = Instantiate(iceSharpPrefab, spawnPos, Quaternion.identity);
+                StartCoroutine(MoveIceSharp(ice, moveDir, speed));
+            }
+
+            yield return new WaitForSeconds(waveInterval);
+            isBusy = false;
+        }
+    }
+        private IEnumerator MoveIceSharp(GameObject ice, Vector2 direction, float speed)
+    {
+        float duration = 4f;
+        float elapsed = 0f;
+
+        while (elapsed < duration && ice != null)
+        {
+            ice.transform.position += (Vector3)(direction * speed * Time.deltaTime);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        if (ice != null)
+            Destroy(ice);
     }
 }

@@ -82,16 +82,16 @@ public class spiderBoss : enemy
 
         // Convert the GameObject to an entity
         entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
-        spiderBossEntity = entityManager.CreateEntity();
+        // spiderBossEntity = entityManager.CreateEntity();
         // spawnerEntity = entityManager.CreateEntity();
         // SpawnerTriggerEntity = Entity.Null;
         SpawnerTriggerEntity = entityManager.CreateEntity();
 
         // Add the PlayerDataComponent to the player entity
-        entityManager.AddComponentData(spiderBossEntity, new BossComponent
-        {
-            position = transform.position, // Set the position
-        });
+        // entityManager.AddComponentData(spiderBossEntity, new BossComponent
+        // {
+        //     position = transform.position, // Set the position
+        // });
 
         // entityManager.AddComponentData(spawnerEntity, new SpawnerTriggerComponent
         // {
@@ -141,20 +141,29 @@ public class spiderBoss : enemy
     void Aggression()
     {
         float healthPercentage = (float)health / (float)maxHP;
-        if (healthPercentage < 0.5f) 
-        {
-            cooldownTime =1f;
-            webCount=2;
-        }
-        else if (healthPercentage < 0.3f)
+        // if (healthPercentage < 0.5f) 
+        // {
+        //     cooldownTime =1f;
+        //     webCount=2;
+        // }
+        
+        if (healthPercentage < 0.3f)
         {
             cooldownTime = 0.5f;
             webCount=3;
+        }
+
+        else if (healthPercentage < 0.5f) 
+        {
+            cooldownTime =1f;
+            webCount=2;
         }
     }
 
     void DecideAction()
     {
+        int skills = Random.Range(1, 3);
+
         float healthPercentage = (float)health / (float)maxHP;
 
         float spawnSpiderWeight = healthPercentage > 0.5f ? 0.3f : 0.6f; // Higher chance when health is > 50%
@@ -170,7 +179,7 @@ public class spiderBoss : enemy
         // Randomly decide action based on weights
         float randomValue = Random.value; // Random number between 0 and 1
 
-        if (randomValue < spawnSpiderWeight)
+        if (skills == 1)
         {
             Debug.Log("Spider Boss decided to spawn a spider.");
             float spiderActionChance = Random.value;
@@ -189,7 +198,7 @@ public class spiderBoss : enemy
                 TriggerSpawn(); // 10%
             }
         }
-        else if (randomValue < spawnSpiderWeight + shootWebWeight)
+        else if (skills==2)
         {
             Debug.Log("Spider Boss decided to shoot a web.");
             ShootWeb();
@@ -369,6 +378,12 @@ public class spiderBoss : enemy
         base.Die(); 
         GameObject chip = Instantiate(spiderchip, shootPoint.position, Quaternion.identity);
         chip.name = "SpiderChip";
+        if (!entityManager.CreateEntityQuery(typeof(SpawnerTriggerComponent)).CalculateEntityCount().Equals(0))
+        {
+            EntityQuery query = entityManager.CreateEntityQuery(typeof(SpawnerTriggerComponent));
+            entityManager.DestroyEntity(query);
+            Debug.LogWarning("playerComponent already exists. Skipping creation.");
+        }
     }
 
     private void DestroyAllEnemies()

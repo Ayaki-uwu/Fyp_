@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Entities;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,14 +16,16 @@ public class SceneChange : MonoBehaviour
         player playerScript = FindObjectOfType<player>();
         if (playerScript != null)
         {
+            playerScript.DestroyEntity();
             playerScript.SavePlayerData(); //before scene change
         }
         else
         {
             Debug.LogWarning("Player not found when trying to save data before scene switch.");
         }
+        // player.instance.DestroyEntity();
         SceneManager.LoadScene(sceneToload);
-    }
+        }
 
     public void quitGame(){
         Application.Quit();
