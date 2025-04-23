@@ -70,6 +70,7 @@ public class FinalBoss : enemy
     private bool isBusy = false;
     int waveCount;
     public GameObject GameWinUi;
+    SpriteRenderer sprite;
 
     // Start is called before the first frame update
     void Start()
@@ -80,6 +81,7 @@ public class FinalBoss : enemy
             playerScript = playerObject.GetComponent<player>();
             target = playerObject.transform;
         }
+        sprite = GetComponent<SpriteRenderer>();
         target = GameObject.FindWithTag("Player").transform;
         Draging = false;
         webist = new List<GameObject>();
@@ -161,6 +163,7 @@ public class FinalBoss : enemy
             dragforce = 9f;
             bossPhrase = BossPhrase.final;
             bossState = BossState.Aggressive;
+            sprite.color = Color.red;
         }
         else if (healthPercentage < 0.5f)
         {
@@ -169,6 +172,7 @@ public class FinalBoss : enemy
             waveCount=6;
             dragforce=7f;
             bossPhrase = BossPhrase.mid;
+            sprite.color = Color.yellow;
         }
     }
 

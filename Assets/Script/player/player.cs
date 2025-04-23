@@ -490,6 +490,26 @@ public class player : MonoBehaviour
         }
         DeadUI.SetActive(true);
         
+        if (!entityManager.CreateEntityQuery(typeof(SpawnerTriggerComponent)).CalculateEntityCount().Equals(0))
+        {
+            EntityQuery query = entityManager.CreateEntityQuery(typeof(SpawnerTriggerComponent));
+            entityManager.DestroyEntity(query);
+            Debug.LogWarning("playerComponent already exists. Skipping creation.");
+        }
+
+        if (!entityManager.CreateEntityQuery(typeof(BossComponent)).CalculateEntityCount().Equals(0))
+        {
+            EntityQuery query = entityManager.CreateEntityQuery(typeof(BossComponent));
+            entityManager.DestroyEntity(query);
+            Debug.LogWarning("playerComponent already exists. Skipping creation.");
+        }
+        if (!entityManager.CreateEntityQuery(typeof(LaserSpawnerTriggerComponent)).CalculateEntityCount().Equals(0))
+        {
+            EntityQuery query = entityManager.CreateEntityQuery(typeof(LaserSpawnerTriggerComponent));
+            entityManager.DestroyEntity(query);
+            Debug.LogWarning("playerComponent already exists. Skipping creation.");
+        }
+        
     }
 
     void movePlayer(){

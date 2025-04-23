@@ -162,7 +162,7 @@ public class spiderBoss : enemy
 
     void DecideAction()
     {
-        int skills = Random.Range(1, 3);
+        int skills = Random.Range(1, 4);
 
         float healthPercentage = (float)health / (float)maxHP;
 
@@ -203,7 +203,7 @@ public class spiderBoss : enemy
             Debug.Log("Spider Boss decided to shoot a web.");
             ShootWeb();
         }
-        else {
+        else if (skills==3){
             Debug.Log("Spider Boss decided to jump to wards player.");
             JumpTowardPlayer();
         }

@@ -153,7 +153,7 @@ public class WolfBoss : enemy
 
                 if (!isDashing)
                 {
-                    int skills = Random.Range(1, 3);
+                    int skills = Random.Range(1, 4);
 
                     // float healthPercentage = (float)health / (float)maxHP;
 
